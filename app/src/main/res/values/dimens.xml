@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <dimen name="view_left_margin">16dp</dimen>
+    <dimen name="view_top_margin">16dp</dimen>
+
+    <dimen name="view_margin_start">8dp</dimen>
+
+    <dimen name="view_padding">8dp</dimen>
+
+    <!-- Recyclerview on the main screen -->
+    <dimen name="list_bottom_margin">8dp</dimen>
+    <dimen name="padding_list_row">16dp</dimen>
+    <dimen name="icon_size">48dp</dimen>
+    <dimen name="icon_star">25dp</dimen>
+    <dimen name="icon_text">22dp</dimen>
+    <dimen name="timestamp">12dp</dimen>
+
+    <!-- Circle shape size for thumbnails -->
+    <dimen name="shape_circle_size">120dp</dimen>
+</resources>

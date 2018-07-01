@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://stackoverflow.com/questions/32930636/how-show-the-letter-with-the-circle-android -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/colorAccent" />
+</shape>

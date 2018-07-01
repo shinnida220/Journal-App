@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <Button
+        android:id="@+id/btnCancelSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="@dimen/view_margin_start"
+        android:layout_marginEnd="@dimen/view_margin_start"
+        android:padding="@dimen/view_padding"
+        android:text="@string/cancel_save_operation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSaveEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="@dimen/view_margin_start"
+        android:layout_marginEnd="@dimen/view_margin_start"
+        android:padding="@dimen/view_padding"
+        android:text="@string/save_operation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

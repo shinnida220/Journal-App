@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddEditDiaryActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/view_left_margin"
+                android:layout_marginRight="@dimen/view_left_margin"
+                android:layout_marginStart="@dimen/view_margin_start"
+                android:layout_marginTop="@dimen/view_top_margin"
+                android:text="@string/tv_addStringTitle"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/addEditDiaryEntryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/view_margin_start"
+                android:layout_marginTop="@dimen/view_margin_start"
+                android:layout_marginEnd="@dimen/view_margin_start"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:hint="@string/hint_diary_title"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textViewContentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/view_margin_start"
+                android:layout_marginTop="@dimen/view_margin_start"
+                android:layout_marginEnd="@dimen/view_margin_start"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:text="@string/add_edit_content_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addEditDiaryEntryTitle"
+                 />
+
+            <EditText
+            android:id="@+id/addEditDiaryEntryContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/view_margin_start"
+            android:layout_marginTop="@dimen/view_margin_start"
+            android:layout_marginEnd="@dimen/view_margin_start"
+            android:gravity="start"
+            android:hint="@string/hint_diary_content"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewContentTitle" />
+
+            <Button
+                android:id="@+id/saveButton"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/add_button_text"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/view_margin_start"
+                android:layout_marginTop="@dimen/view_margin_start"
+                android:layout_marginEnd="@dimen/view_margin_start"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addEditDiaryEntryContent"
+
+                />
+
+        </android.support.constraint.ConstraintLayout>
+</ScrollView>
+
+
+
