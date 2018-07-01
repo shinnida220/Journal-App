@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_title_size"
+        android:layout_marginLeft="@dimen/view_left_margin"
+        android:layout_marginRight="@dimen/view_left_margin"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="@dimen/view_top_margin"
+        android:text="@string/tv_entry_title"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+    <TextView
+        android:id="@+id/textDiaryEntryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="@dimen/view_top_margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_content_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_title_size"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_entry_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDiaryEntryTitle" />
+
+    <TextView
+        android:id="@+id/textDiaryEntryContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_margin_start"
+        android:layout_marginTop="@dimen/view_top_margin"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_content_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+</android.support.constraint.ConstraintLayout>

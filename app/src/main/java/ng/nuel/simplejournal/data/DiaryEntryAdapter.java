@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -23,14 +22,14 @@ public class DiaryEntryAdapter extends RecyclerView.Adapter<DiaryEntryAdapter.Di
     private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
 
     // Member variable to handle item clicks
-    final private DiaryEntryClickListener mItemClickListener;
+    final private ItemClickListener mItemClickListener;
 
     // Class variables for the List that holds task data and the Context
     private List<DiaryEntry> mDiaryEntries;
     private Context mContext;
 
 
-    public DiaryEntryAdapter(Context context, List<DiaryEntry> diaryEntries, DiaryEntryClickListener itemClickListener){
+    public DiaryEntryAdapter(Context context, List<DiaryEntry> diaryEntries, ItemClickListener itemClickListener){
         mContext = context;
         mItemClickListener = itemClickListener;
         mDiaryEntries = diaryEntries;
@@ -50,7 +49,7 @@ public class DiaryEntryAdapter extends RecyclerView.Adapter<DiaryEntryAdapter.Di
         // Determine the values of the wanted data
         DiaryEntry diaryEntry = mDiaryEntries.get(position);
         String mCont = diaryEntry.getContent();
-        String briefContent = mCont.substring(0, (mCont.length() > 50) ? 50 : mCont.length()-1);
+        String briefContent = mCont.substring(0, (mCont.length() > 50) ? 50 : mCont.length());
         String title = diaryEntry.getTitle();
         String updatedAt = diaryEntry.getUpdatedAt();
 
@@ -67,6 +66,8 @@ public class DiaryEntryAdapter extends RecyclerView.Adapter<DiaryEntryAdapter.Di
         // Random Color
         holder.icon.setBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
         holder.icon.setTextColor(mContext.getResources().getColor(R.color.white));
+
+        holder.bind();
     }
 
     @Override
@@ -92,7 +93,7 @@ public class DiaryEntryAdapter extends RecyclerView.Adapter<DiaryEntryAdapter.Di
 
 
     // Viewholder for the DiaryEntryAdapter
-    class DiaryEntryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class DiaryEntryViewHolder extends RecyclerView.ViewHolder  {
 
         TextView icon, title, date, desc;
 
@@ -108,17 +109,26 @@ public class DiaryEntryAdapter extends RecyclerView.Adapter<DiaryEntryAdapter.Di
             date = itemView.findViewById(R.id.textViewDate);
         }
 
-        @Override
-        public void onClick(View view) {
-            // TODO: Handle adapter item click..
-            String elementId = mDiaryEntries.get(getAdapterPosition()).getId();
-            mItemClickListener.onDiaryEntryItemClickListener(elementId);
+//        @Override
+//        public void onClick(View view) {
+//            String elementId = mDiaryEntries.get(getAdapterPosition()).getId();
+//            mItemClickListener.onItemClickListener(elementId);
+//        }
+
+        void bind(){
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String elementId = mDiaryEntries.get(getAdapterPosition()).getId();
+                    mItemClickListener.onItemClickListener(elementId);
+                }
+            });
         }
     }
 
 
     // Interface to be implemented by listing activity..
-    public interface DiaryEntryClickListener {
-        void onDiaryEntryItemClickListener(String itemId);
+    public interface ItemClickListener {
+        void onItemClickListener(String itemId);
     }
 }

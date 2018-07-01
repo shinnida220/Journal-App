@@ -16,9 +16,14 @@
     <dimen name="list_bottom_margin">8dp</dimen>
     <dimen name="padding_list_row">16dp</dimen>
     <dimen name="icon_size">48dp</dimen>
+    <dimen name="icon_text_size">32dp</dimen>
+    <dimen name="icon_text_padding">8dp</dimen>
     <dimen name="icon_star">25dp</dimen>
     <dimen name="icon_text">22dp</dimen>
     <dimen name="timestamp">12dp</dimen>
+
+    <dimen name="text_title_size">16dp</dimen>
+    <dimen name="text_content_size">18dp</dimen>
 
     <!-- Circle shape size for thumbnails -->
     <dimen name="shape_circle_size">120dp</dimen>

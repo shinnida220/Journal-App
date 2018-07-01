@@ -17,10 +17,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:launchMode="singleTop"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,12 +32,14 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTop" />
-        <activity android:name=".AddEditDiaryActivity"
+        <activity
+            android:name=".AddEditDiaryActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
         </activity>
+        <activity android:launchMode="singleTop" android:name=".DetailsActivity"></activity>
     </application>
 
 </manifest>

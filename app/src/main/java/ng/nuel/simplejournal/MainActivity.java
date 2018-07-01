@@ -23,13 +23,17 @@ import ng.nuel.simplejournal.data.FirebaseDBHelper;
 
 import static android.widget.LinearLayout.VERTICAL;
 
-public class MainActivity extends AppCompatActivity implements DiaryEntryAdapter.DiaryEntryClickListener {
+public class MainActivity extends AppCompatActivity{
+        //implements DiaryEntryAdapter.ItemClickListener {
 
     RecyclerView mRecyclerViewDiaryEntries;
     DiaryEntryAdapter mDiaryEntryAdapter;
 
     FirebaseDBHelper firebaseDBHelper;
     DatabaseReference database;
+
+    // Extra for the task ID to be received in the intent
+    public static final String EXTRA_DIARY_ENTRY_ID = "extraDiaryEntryId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,14 @@ public class MainActivity extends AppCompatActivity implements DiaryEntryAdapter
         mRecyclerViewDiaryEntries.setLayoutManager(new LinearLayoutManager(this));
 
         // We Initialize the adapter and attach it to the RecyclerView
-        mDiaryEntryAdapter = new DiaryEntryAdapter(this, firebaseDBHelper.retrieve(), this);
+        mDiaryEntryAdapter = new DiaryEntryAdapter(this, firebaseDBHelper.retrieve(), new DiaryEntryAdapter.ItemClickListener() {
+            @Override
+            public void onItemClickListener(String itemId) {
+                Intent i = new Intent(MainActivity.this, DetailsActivity.class);
+                i.putExtra(MainActivity.EXTRA_DIARY_ENTRY_ID, itemId);
+                startActivity(i);
+            }
+        });
         mRecyclerViewDiaryEntries.setAdapter(mDiaryEntryAdapter);
 
         DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
@@ -103,6 +114,22 @@ public class MainActivity extends AppCompatActivity implements DiaryEntryAdapter
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        if( mDiaryEntryAdapter != null){
+            mDiaryEntryAdapter.setDiaryEntries(firebaseDBHelper.retrieve());
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if( mDiaryEntryAdapter != null){
+            mDiaryEntryAdapter.setDiaryEntries(firebaseDBHelper.retrieve());
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Here we inflate our menu ..
         // AT, it has just the logout menu..
@@ -128,8 +155,12 @@ public class MainActivity extends AppCompatActivity implements DiaryEntryAdapter
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onDiaryEntryItemClickListener(String itemId) {
-        Toast.makeText(getApplicationContext(), "Item Id sent here....", Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onItemClickListener(String itemId) {
+//        Toast.makeText(getApplicationContext(),  itemId, Toast.LENGTH_SHORT).show();
+//
+//        Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
+//        detailsIntent.putExtra(MainActivity.EXTRA_DIARY_ENTRY_ID, itemId);
+//        startActivity(detailsIntent);
+//    }
 }
